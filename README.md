@@ -1,6 +1,7 @@
 <img src="https://user-images.githubusercontent.com/73097560/115834477-dbab4500-a447-11eb-908a-139a6edaec5c.gif">
 <p align="center">
 ＪＡＩ ＳＨＲＥＥ ＲＡＭ 🚩🚩
+ 
  🛡️ Banword Delete Bot
 
 A **Telegram group moderation bot** built with Pyrogram that **automatically deletes messages containing 18+ content, abusive words, or custom banned words**. Perfect for keeping your group safe and clean.
