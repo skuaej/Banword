@@ -26,7 +26,7 @@ A **Telegram group moderation bot** built with Pyrogram that **automatically del
 - Pyrogram **2.x**  
 - A **Telegram Bot Token** from [BotFather](https://t.me/BotFather)  
     
-
+![github card](https://github-readme-stats.vercel.app/api/pin/?username=Aashik-team&repo=Banword&theme=dark)
 
 
 
