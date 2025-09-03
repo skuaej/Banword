@@ -34,7 +34,7 @@ Banword = Client(
 async def Banword_bot():
     global BOT_ID, BOT_NAME, BOT_USERNAME
     await Banword.start()
-    getme = await MAFU.get_me()
+    getme = await Banword.get_me()
     BOT_ID = getme.id
     BOT_USERNAME = getme.username
     if getme.last_name:
@@ -43,4 +43,4 @@ async def Banword_bot():
         BOT_NAME = getme.first_name
 
 
-loop.run_until_complete(MAFU_bot())
+loop.run_until_complete(Banword_bot())
