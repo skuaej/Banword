@@ -20,4 +20,4 @@ WORKDIR /app
 COPY . .
 
 # Run the app
-CMD ["python3", "-m", "MAFU"]
+CMD ["python3", "-m", "Banword"]
