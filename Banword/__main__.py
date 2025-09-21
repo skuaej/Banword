@@ -1,19 +1,35 @@
 import asyncio
-import importlib
-from pyrogram import idle
-from Banword import Banword
-from Banword.modules import ALL_MODULES
-from config import LOGGER_ID, BOT_USERNAME
+import threading
+from aiohttp import web
+from pyrogram import Client
 
-loop = asyncio.get_event_loop()
+# --- Dummy Webserver for Koyeb health check ---
+async def handle(request):
+    return web.Response(text="Bot is running on Koyeb!")
+
+def run_web():
+    app = web.Application()
+    app.router.add_get("/", handle)
+    web.run_app(app, port=8000)
+
+# Start the webserver in a background thread
+threading.Thread(target=run_web, daemon=True).start()
+
+# --- Your Bot ---
+API_ID = int("YOUR_API_ID")
+API_HASH = "YOUR_API_HASH"
+BOT_TOKEN = "YOUR_BOT_TOKEN"
+
+Banword = Client(
+    "Banword",
+    api_id=API_ID,
+    api_hash=API_HASH,
+    bot_token=BOT_TOKEN
+)
 
 async def roy_bot():
-    for all_module in ALL_MODULES:
-        importlib.import_module("Banword.modules." + all_module)
-    print("• @aaradhyavideBot B𝗈𝗍 Started Successfully.")
-    await idle()
-    print("• Don't edit baby, otherwise you get an error: @networkxlog")
-    await Banword.send_message(LOGGER_ID, "**✦ ɪ ᴀᴍ ᴀʟɪᴠᴇ ʙᴀʙʏ.\n\n✦ ᴊᴏɪɴ - @aashikteam**")
+    async with Banword:
+        await Banword.send_message("me", "✅ Bot started successfully on Koyeb!")
 
 if __name__ == "__main__":
-    loop.run_until_complete(roy_bot())
+    asyncio.run(roy_bot())
