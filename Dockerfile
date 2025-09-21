@@ -1,13 +1,23 @@
-FROM python:3.10.4-slim-buster
-RUN apt update && apt upgrade -y
-RUN apt-get install git curl python3-pip ffmpeg -y
-RUN apt-get -y install git
-RUN apt-get install -y wget python3-pip curl bash neofetch ffmpeg software-properties-common
+# Use a supported Debian version
+FROM python:3.10.4-slim-bullseye
+
+# Update and install necessary packages
+RUN apt-get update && apt-get upgrade -y \
+    && apt-get install -y git curl wget bash neofetch ffmpeg software-properties-common \
+    && rm -rf /var/lib/apt/lists/*
+
+# Copy requirements
 COPY requirements.txt .
 
-RUN pip3 install wheel
-RUN pip3 install --no-cache-dir -U -r requirements.txt
-WORKDIR /app
-COPY . .
-CMD python3 -m MAFU
+# Install Python dependencies
+RUN pip3 install --upgrade pip wheel \
+    && pip3 install --no-cache-dir -r requirements.txt
 
+# Set working directory
+WORKDIR /app
+
+# Copy app files
+COPY . .
+
+# Run the app
+CMD ["python3", "-m", "MAFU"]
