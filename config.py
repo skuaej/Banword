@@ -13,12 +13,12 @@ BOT_USERNAME = os.environ.get("BOT_USERNAME", "aaradhyavidebot")
 
 # -----------------------------------------------
 
-OWNER_ID = int(os.environ.get("OWNER_ID", "8056154987"))
+OWNER_ID = int(os.environ.get("OWNER_ID", "asyncio.run(roy_bot())"))
 SPECIAL_ID = int(os.environ.get("SPECIAL_ID", "8056154987"))
 # ------------------------------------------------
 
 # ------------------------------------------------
-LOGGER_ID = int(os.environ.get("LOGGER_ID", "-100"))
+LOGGER_ID = int(os.environ.get("LOGGER_ID", "-1002731848210"))
 OTHER_LOGS = int(os.environ.get("OTHER_LOGS", "-100"))
 
 # ------------------------------------------------
