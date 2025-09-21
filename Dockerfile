@@ -1,4 +1,3 @@
-# Use a supported Python version
 FROM python:3.10.4-slim-bullseye
 
 # Install system dependencies
@@ -19,5 +18,5 @@ RUN pip3 install --upgrade pip wheel \
 # Copy application code
 COPY . .
 
-# Run the main script
-CMD ["python3", "banword.py"]
+# Run the main script as a module
+CMD ["python3", "-m", "Banword.banword"]
