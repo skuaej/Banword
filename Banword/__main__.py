@@ -16,4 +16,4 @@ async def roy_bot():
     await Banword.send_message(LOGGER_ID, "**✦ ɪ ᴀᴍ ᴀʟɪᴠᴇ ʙᴀʙʏ.\n\n✦ ᴊᴏɪɴ - @aashikteam**")
 
 if __name__ == "__main__":
-    loop.run_until_complete(roy_bot())
+    asyncio.run(roy_bot()) 
